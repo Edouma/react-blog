@@ -6,13 +6,17 @@ const Home = () => {
 const [blogs, setBlogs]= useState([
 
     {title:'React blog', body:'lorem ipsum...',author: 'Edwin', id: 1},
-    {title:'welcome party', body:'lorem ipsum...',author: 'Jack', id: 2},
-    {title:'web dev tips', body:'lorem ipsum...',author: 'Bett', id: 3}
+    {title:'Welcome party', body:'lorem ipsum...',author: 'Bett', id: 2},
+    {title:'Web dev tips', body:'lorem ipsum...',author: 'Edwin', id: 3}
 ]);    
-     
+const handleDelete = (id)=>{
+    const newBlogs = blogs.filter(blog => blog.id !== id);
+    setBlogs(newBlogs);
+}     
+
     return (
         <div className="home">
-        <BlogList blogs ={blogs} title="All blogs"/>
+        <BlogList blogs ={blogs} title="All blogs" handleDelete={handleDelete}/>
         
         </div>
     );
